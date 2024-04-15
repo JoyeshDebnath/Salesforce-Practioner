@@ -1,0 +1,37 @@
+<template>
+    <c-child-component
+    message="Hurray !Coming from the Parent Component"
+    card-heading="Child Component 😎"
+    >
+    <!-- complex data example -->
+    </c-child-component>
+      <div class="slds-var-m-bottom_medium"></div>
+    <c-carousel-compo
+    carousel-details={carouselData}
+    ></c-carousel-compo>
+
+    <div class="slds-var-m-bottom_medium"></div>
+    <!-- example  of data passing on action  -->
+    <lightning-card title="parent - child on action ">
+      <div class="slds-var-m-around_medium">
+          <lightning-input type="number" value={percentage} onkeyup={percentHandler} label="Enter percentage"></lightning-input>
+          <c-progress-bar
+          progress-val={percentage}
+          ></c-progress-bar>
+      </div>
+    </lightning-card>
+
+    <!-- example of calling child methods from parent component  -->
+    <lightning-card title="calling child Method from parent ">
+      <lightning-button 
+      variant="brand" 
+      label="Reset Slider" 
+      title="Primary action"
+      onclick={handleClick}
+      class="slds-m-left_x-small"
+      >
+      </lightning-button>
+         <c-slider-compo></c-slider-compo>
+    </lightning-card>
+   
+</template>

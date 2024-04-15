@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Data binding Demo">
+        <div class="slds-m-around_medium">Hi My name is {name} and I am a <strong>{title}</strong></div>
+        <div class="slds-m-around_medium">
+            <lightning-input 
+            type="text" 
+            label="Enter Title" 
+            onkeyup={titleChangeHandler}
+            >
+            </lightning-input>
+        </div>
+        
+        
+    </lightning-card>
+    <!-- track properties demo code  -->
+    <lightning-card title="@track properties Demo ">
+        <div class="slds-m-around_medium">City name <strong>{address.city}</strong></div>
+        <div class="slds-m-around_medium">
+            <lightning-input 
+            type="text" 
+            label="Enter City name" 
+            onkeyup={cityChangeHandler}
+            >
+            </lightning-input>
+        </div>
+        
+        
+    </lightning-card>
+</template>

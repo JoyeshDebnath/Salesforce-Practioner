@@ -1,0 +1,49 @@
+<template>
+<!-- Example of the Primitive data passing  -->
+    <c-parent-to-child-alert-compo
+    message="Hello I am Parent !!!"
+    card-heading="Parent To Child primitive communication Demo!"
+    
+    >
+</c-parent-to-child-alert-compo>
+
+<div class="slds-var-m-bottom_medium"></div>
+<!-- example of the Complex data passing  -->
+<c-parent-to-child-carousel-compo
+    card-heading="Parent To Child Non Primitive Communication Demo!"
+    carousel-data={carouselData}
+></c-parent-to-child-carousel-compo>
+
+<div class="slds-var-m-bottom_medium"></div>
+
+<!-- example of the action trigger  -->
+<lightning-card title="Parent To child Communication On action Trigger Demo">
+        
+        <lightning-input 
+        type="text" 
+        label="Enter Percentage" 
+        onkeyup={changeHandler}
+        value={progressVal}
+        >
+        </lightning-input>
+        
+        <c-parent-to-child-action-demo
+        progress-value={progressVal}
+        >
+        </c-parent-to-child-action-demo>
+</lightning-card>
+
+
+<!-- Example of calling child method from the parent .. -->
+<lightning-card>
+        <c-p2c-slider-compo></c-p2c-slider-compo>
+        <lightning-button 
+        variant="brand" 
+        label="Reset Slider" 
+        onclick={handleClick} 
+        class="slds-m-left_x-small btn">
+        </lightning-button>
+</lightning-card>
+        
+
+</template>

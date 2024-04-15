@@ -1,0 +1,13 @@
+<template>
+    <div class="slds-m-around_medium">
+        <p>What is your name </p>
+    </div>
+    <div class="slds-m-around_medium">
+        <slot name="name"></slot>
+    </div>
+    <div class="slds-m-around_medium">What is your age ?</div>
+    <div class="slds-m-around_medium"><slot name="age"></slot></div>
+    <footer class="slds-card__footer slds_hide">
+        <slot name="footer" onskotchange={handleSlotChange}></slot>
+    </footer>
+</template>

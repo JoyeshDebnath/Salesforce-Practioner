@@ -1,0 +1,21 @@
+button{
+    border: none;
+    color: black;
+    padding: 14px 28px;
+    cursor: pointer;
+    background-color:wheat;
+    border: 1px solid black;
+}
+
+.green{
+    background-color:green;
+}
+.red{
+    background-color:red;
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}

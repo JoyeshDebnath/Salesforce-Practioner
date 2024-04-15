@@ -1,0 +1,73 @@
+<template>
+    <lightning-card title="Conditional Rendering">
+        <div class="slds-var-m-around_medium">
+            <lightning-button
+            variant="brand"
+            label="Show Data"
+            title="Show Data"
+            onclick={handleClick}
+            class="slds-var-m-left_x-small"
+            >
+        </lightning-button>
+        <template if:true={isVisible}>
+            <div><strong>Welcome To LWC World !</strong></div>
+        </template>
+        <template if:false={isVisible}>
+            <div><strong>Sorry Not Visible!!!</strong></div>
+        </template>
+    </div>
+
+    <div class="slds-var-m-around_medium">
+        <lightning-input
+        type="text"
+        label="Type hello to see data "
+        onkeyup={changeHandler}
+        >
+        </lightning-input>
+        <template if:true={checkTypedText}>
+                <div>Hurray You have typed correctly !!</div>
+        </template>
+            
+    </div>
+    </lightning-card>
+
+    <lightning-card title="Template Looping Demo" class="slds-m-top_medium">
+            <div class="slds-m-around_medium">
+                <template for:each={carList} for:item="car">
+                    
+                        <ul key={car} class="slds-has-dividers_around slds-has-block-links">
+                        <li  class="slds-item">🛺{car}</li>
+                        </ul> 
+                </template>
+            </div>
+    </lightning-card>
+
+    <lightning-card title="Template Looping Demo using Iterator Loop" class="slds-m-top_medium">
+            <div class="slds-m-around_medium">
+                <template iterator:ceo={ceoList} >
+                    <div key={ceo.value.id}>
+                        <ul  class="slds-has-dividers_around slds-has-block-links">
+                            <template if:true={ceo.first}>
+                                <div class="slds-box slds-theme_shade">
+                                            <strong>List of top companies and their CEOs</strong>
+                                </div>
+                            
+                            </template>
+                        <li  class="slds-item">
+                            <strong>{ceo.value.name}</strong>
+                            {ceo.value.company}
+                        </li>
+
+                        <template if:true={ceo.last}>
+                                <div class="slds-box slds-theme_shade">
+                                            <strong>Thanks </strong>
+                                </div>
+                            
+                            </template>
+                        </ul>
+                    </div> 
+                </template>
+            </div>
+    </lightning-card>
+
+</template>

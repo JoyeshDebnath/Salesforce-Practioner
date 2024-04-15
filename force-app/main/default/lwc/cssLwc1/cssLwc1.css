@@ -1,0 +1,16 @@
+.btn{
+    color: black;
+    padding: 2rem 2rem;
+    font-size: 18px;
+    background-color:yellow;
+ }
+ .btn:hover{
+    background-color:yellowgreen;
+    font-weight: 700;
+ }
+
+ .text{
+    font-size: 18px;
+    font-weight: 700;
+    color: coral;
+ }

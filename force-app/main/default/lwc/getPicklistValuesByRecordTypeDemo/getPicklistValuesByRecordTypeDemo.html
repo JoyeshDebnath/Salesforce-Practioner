@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Get pick list By record type Demo ">
+            <div class="slds-var-m-around_medium">
+                <div><strong>{selectedRating}</strong></div>
+                    <!-- combo box  -->
+                    <lightning-combobox
+                        name={selectedRating}
+                        label="Ratings"
+                        value={selectedRating}
+                        placeholder="Select Rating"
+                        options={ratingOptions}
+                        onchange={handleRatingChange} 
+                    >
+                    </lightning-combobox>
+                    <!-- combo box  -->
+            </div>
+            <div class="slds-var-m-around_medium">
+                <div><strong>{selectedIndustry}</strong></div>
+                <!-- combo box  -->
+                <lightning-combobox
+                    name={selectedIndustry}
+                    label="Industries"
+                    value={selectedIndustry}
+                    placeholder="Select Industry"
+                    options={industryOptions}
+                    onchange={handleIndustryChange} 
+                >
+                </lightning-combobox>
+                <!-- combo box  -->
+        </div>
+    </lightning-card>
+</template>

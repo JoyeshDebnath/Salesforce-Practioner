@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="For:each with array Demo" icon-name="custom:custom1">
+        <ul>
+            <template for:each={carList} for:item="car">
+                <a href="#" key={car} >{car}</a>
+            </template>         
+        </ul>
+    </lightning-card>
+     <hr>
+
+    <lightning-card title="for:each demo with array of objects " icon-name="custom:custom15">
+        <ul class="slds-m-around_medium">
+            <template for:each={persons} for:item="person">
+                  <li key={person.id}>{person.name}</li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>

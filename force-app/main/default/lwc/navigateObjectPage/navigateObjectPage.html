@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="navigate to New record">
+        <lightning-button 
+        variant="brand"
+        label="new record"
+        onclick={navigateToRecord}
+        ></lightning-button>
+
+        <lightning-button
+        variant="brand"
+        label="new record with default values"
+        class="slds-m-around_medium"
+        onclick={navigateToNewRecordWithDefault}
+        ></lightning-button>
+
+        <lightning-button
+        variant="brand"
+        label="navigate to list view"
+        class="slds-m-around_medium"
+        onclick={navigateToListView}
+        ></lightning-button>
+
+        <lightning-button
+        variant="brand"
+        label="navigate to file"
+        class="slds-m-around_medium"
+        onclick={navigateToFile}
+        ></lightning-button>
+    </lightning-card>
+</template>

@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Get Pick List Values Demo ">
+        <div class="slds-var-m-around_medium">
+            <h2>The Selected Account Source is : <strong>{selectedAccountSource}</strong></h2>
+        </div>
+                <div class="slds-var-p-around_medium">
+                    <lightning-combobox
+                            name="progress"
+                            label="Account Status"
+                            value={selectedAccountSource}
+                            placeholder="Select Account Source"
+                            options={accountSourceOptions}
+                            onchange={handleAccountSourceChange} >
+                    </lightning-combobox>
+                </div>
+                <div class="slds-var-p-around_medium">
+                    <lightning-combobox
+                            name="Pronouns"
+                            label="Pronouns Option"
+                            value={selectedPronouns}
+                            placeholder="Select Pronouns"
+                            options={pronounsOptions}
+                            onchange={handlePronounsChange} >
+                    </lightning-combobox>
+                </div>
+                
+    </lightning-card>
+</template>

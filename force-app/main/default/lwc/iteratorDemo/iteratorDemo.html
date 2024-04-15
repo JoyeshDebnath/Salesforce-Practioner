@@ -1,0 +1,9 @@
+<template>
+      <template iterator:player={playersList}>
+            <div key={player.value.id}>
+                <h1 if:true={player.first}><strong>List of Top players:</strong></h1>
+                <h2>{player.value.name}</h2>
+                <p><strong>{player.value.country}</strong></p>
+            </div>
+      </template>
+</template>
