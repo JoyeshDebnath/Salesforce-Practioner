@@ -2,6 +2,16 @@ import { LightningElement,wire,api,track } from 'lwc';
 import fetchContactData from '@salesforce/apex/datatableController.fetchContactData';
 //columns 
 //fieldName -->> api name of tha data 
+const actions = [
+    {
+        label: 'Show Details',
+        name: 'details'
+    },
+    {
+        label:'Delete' ,name :'delete'
+    }
+];
+
 const columns = [
     {
         label: "Id", fieldName: "Id", type: "text"},
@@ -40,6 +50,24 @@ const columns = [
             iconPosition: 'right',
             iconAlternativeText:'Account Icon'
         }
+    },
+    {
+        type: 'button',
+        fixedWidth: 150,
+        typeAttributes: {
+            label: 'View Details',
+            title: 'View Details',
+            name: 'viewDetails',
+            value: 'viewDetails',
+            variant: 'brand',
+            class:'scaled-down'
+        }
+    },
+    {
+        type: 'action',
+        typeAttributes: {
+            rowActions:actions
+        }
     }
 ]
 
@@ -47,6 +75,23 @@ export default class DatatatableCmp extends LightningElement {
     contactData;
     columnList = columns;
     error;
+    handleRowAction (event) { 
+        const action = event.detail.action;
+        const row = event.detail.row;
+        switch (action.name)
+        { 
+            case 'details':
+                alert('Showing Details : ' + JSON.stringify(row))
+                break;
+            case 'delete':
+                alert('Deleting ...' + JSON.stringify(row));
+                break;
+            case 'viewDetails':
+                alert('View Details : ' + row.Id)
+                break;
+        }
+    }
+
 
     @wire(fetchContactData)
     contactResponse ({ data, error }) { 
