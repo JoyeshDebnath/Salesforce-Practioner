@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Custom metadata Demo 😊">
+        <h1>This is demo of custom metadata ... </h1>
+        <ul>
+            <template for:each={labels} for:item="label">
+                <li key={label.Id}>{label.Label}</li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>

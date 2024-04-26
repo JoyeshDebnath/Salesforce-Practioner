@@ -1,0 +1,20 @@
+<template>
+    <lightning-card variant="Narrow" icon-name="standard:contact" title="Lightning Datatable POC ✨">
+        <div class="slds-p-around_large">
+            <!-- datatatble  -->
+            <lightning-datatable
+                key-field="id"
+                data={contactData}
+                show-row-number-column
+                hide-checkbox-column
+                columns={columnList}
+                onrowaction={handleRowAction}
+            >
+            </lightning-datatable>
+        </div>
+        <div slot="footer">
+            <lightning-badge label="Datatble"></lightning-badge>
+        </div>
+
+    </lightning-card>
+</template>

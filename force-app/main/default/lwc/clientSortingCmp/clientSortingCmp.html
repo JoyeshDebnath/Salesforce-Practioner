@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Client Side Sorting Example 🧪🧪" >
+        <div style="height:300px">
+            <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+                sorted-by={sortedBy}
+                sorted-direction={sortedDirection}
+                onsort={handleSort}
+            ></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
