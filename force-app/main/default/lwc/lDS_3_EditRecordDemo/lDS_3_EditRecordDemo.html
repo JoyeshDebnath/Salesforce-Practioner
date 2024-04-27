@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="LDS Edit Form Demo">
+        <div class="slds-m-around_medium">
+            <lightning-record-form
+                record-id={recordId}
+                object-api-name={objectApiName}
+                layout-type="Full"
+                columns="2"
+                mode="edit"
+            ></lightning-record-form>
+        </div>
+
+        <div class="slds-m-around_large">
+            <h3>Lightning record edit ... </h3>
+            <lightning-record-edit-form
+                record-id={recordId}
+                object-api-name={objectApiName}
+
+            >
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="Name"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="Inmdustry"></lightning-input-field>
+                    </div>
+                </div>
+                <lightning-button type="submit" label="Save" onclick={saveHandler}></lightning-button>
+        </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

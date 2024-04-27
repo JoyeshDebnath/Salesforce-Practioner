@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Record UI DEMO 😊" icon-name="standard:account">
+            <div>
+                <lightning-button 
+                    variant="brand"
+                    label="Create Account"
+                    onclick={handleCreate}
+                    ></lightning-button>
+            </div>
+    </lightning-card>
+    <lightning-card variant="Narrow"  title="Get Field Values Demo ✨: Account Information .." icon-name="standard:account">
+        <div class="slds-p-horizontal_small">
+            <p>Account name : {name}</p>
+            <p>Industry : {industry}</p>
+            <p>Phone : {phone}</p>
+            <p>Owner : {owner}</p>
+            <p>Account type: {type}</p>
+            <p>Type : {typeWF}</p>
+        </div>
+
+    </lightning-card>
+</template>
