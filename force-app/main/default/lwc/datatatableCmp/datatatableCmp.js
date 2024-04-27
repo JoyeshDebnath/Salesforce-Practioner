@@ -29,12 +29,13 @@ const columns = [
             },
             iconPosition: 'left',
             iconAlternativeText:'Contact Icon'
-        }
+        },
+        sortable: true,
     },
-    {label:'Phone',fieldName:'Phone',type:'phone'},
-    { label: 'Title', fieldName: 'Title', type: 'text' },
+    {label:'Phone',fieldName:'Phone',type:'phone',editable:true},
+    { label: 'Title', fieldName: 'Title', type: 'text',sortable:true },
     { label: 'AccountId', fieldName: 'AccountId', type: 'text' },
-    { label: 'Email', fieldName: 'Email', type: 'Email' },
+    { label: 'Email', fieldName: 'Email', type: 'Email',sortable:true,editable:true },
     {
         label: 'Account_Name', fieldName: 'accountUrl', type: 'url',
         typeAttributes: {
@@ -75,6 +76,8 @@ export default class DatatatableCmp extends LightningElement {
     contactData;
     columnList = columns;
     error;
+    sortBy='Phone';
+    sortDirection='asc';
     handleRowAction (event) { 
         const action = event.detail.action;
         const row = event.detail.row;
@@ -117,4 +120,37 @@ export default class DatatatableCmp extends LightningElement {
             this.error=error
         }
     }
+
+    handleSortData (event) { 
+        //field name 
+        this.sortedBy = event.detail.fieldName;
+        //sorted direction 
+        this.sortDirection = event.detail.sortDirection;
+        this.sortData(event.detail.fieldName,event.detail.sortDirection)
+    }
+
+    sortData (fieldName, direction) { 
+        let parsedData = JSON.parse(JSON.stringify(this.contactData));
+        let keyValue = (a) => { 
+            console.log('JD',a,a[fieldName]);
+            return a[fieldName];
+        }
+
+        let isReverse = direction === 'asc' ? 1 : -1;
+        parsedData.sort((x, y) => { 
+            x = keyValue(x) ? keyValue(x) : '';
+            y = keyValue(y) ? keyValue(y) : '';
+            return  isReverse*((x>y)-(y-x))
+        })
+
+        this.contactData = parsedData;
+
+    }
+
+    handleSave (event) { 
+        console.log('inside onsave ', event.detail)
+        
+    }
+
+
 }
