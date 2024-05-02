@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Wire Apex Method DEMO :" icon-name="standard:case">
+            <div class="slds-m-around_medium">
+                <div>
+                    <lightning-input value={subject} label="Search case by subject "
+                    onchange={handleChange}
+                    ></lightning-input>
+                </div>
+                
+                <template for:each={caseData} for:item="item">
+                        <p key={item.Id}>
+                            {item.Subject} <br/>
+                            {item.Description}<br/>
+                        </p>
+                </template>
+            </div>
+    </lightning-card>
+</template>
