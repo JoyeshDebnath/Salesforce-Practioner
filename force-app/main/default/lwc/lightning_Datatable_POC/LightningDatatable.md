@@ -1,0 +1,2 @@
+## Lightning Datatable Notes 🙇‍♂️
+

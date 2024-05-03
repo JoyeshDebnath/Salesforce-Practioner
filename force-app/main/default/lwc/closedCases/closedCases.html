@@ -1,0 +1,54 @@
+<template>
+    <lightning-card icon-name="standard:case" variant="Narrow" title="Close Multiple Cases">
+        <lightning-button slot="actions" onclick={handleClick} variant="brand" label="Close Selected Cases">
+        </lightning-button>
+        <div class="slds-p-horizontal_small">
+            <!-- table  -->
+            <table if:true={_cases} class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+                aria-label="">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Case Number"></div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Case Number">Case Number</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Subject">Subject</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Status">Status</div>
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <template if:true={_cases} for:each={_cases} for:item="_case" for:index="index">
+                        <tr class="slds-hint-parent" key={_case.caseRecord.Id}>
+                        <th data-label="Opportunity Name" scope="row">
+                            <div class="slds-truncate" title="Cloudhub">
+                                <lightning-input data-id={index} onchange={handleCheckbox} type="checkbox" name="isSelected" variant="label-hidden" checked={_case.caseRecord.isSelected}></lightning-input>
+                            </div>
+                        </th>
+                        <td data-label="Account Name">
+                            <div class="slds-truncate" title="CaseNumber">{_case.caseRecord.CaseNumber}</div>
+                        </td>
+                        <td data-label="Close Date">
+                            <div class="slds-truncate" title="Subject">{_case.caseRecord.Subject}</div>
+                        </td>
+                        <td data-label="Prospecting">
+                            <div class="slds-truncate" title="Status">{_case.caseRecord.Status}</div>
+                        </td>
+                        
+                    </tr>
+                            
+                    </template>
+                    
+                </tbody>
+            </table>
+            <!-- table  -->
+        </div>
+        <p slot="footer">Close Multiple Cases at once </p>
+    </lightning-card>
+</template>
