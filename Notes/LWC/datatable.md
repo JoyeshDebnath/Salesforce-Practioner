@@ -23,4 +23,13 @@ There are 2 methods tp achive this :
     ![alt text](image-3.png)
 
     
+    
+## Inline Editing  in lightning datatable ✏️✏️
+
+![alt text](image-4.png)
+
+
+
+
+    
 

@@ -22,4 +22,16 @@ public with sharing class ContactController {
         
         return contactList;
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Contact> getContactsBasedOnAccount(String AccountId){
+        List<Contact> contactList=new List<Contact>();
+        try{
+            contactList=[SELECT Id,Name,Title,Account.Name,Phone,Email FROM Contact WHERE AccountId=:AccountId];
+
+        }catch(Exception e){
+            throw new AuraHandledException(e.getMessage());
+        }
+        return contactList;
+    }
 }
