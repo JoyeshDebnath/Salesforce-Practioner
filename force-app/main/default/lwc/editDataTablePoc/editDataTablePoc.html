@@ -1,0 +1,18 @@
+<template>
+	<div>
+		<lightning-card variant="Narrow" title="Inline Editable Datatable DEMO ✍️" icon-name="standard:account">
+            <template lwc:if={contactData}>
+			<c-custom-data-type_-lightning-datatable
+                key-field="Id"
+                data={contactData}
+                hide-checkbox-column
+                columns={columns}
+                onsave={saveHandler}
+                draft-values={draftValues}
+                >
+            </c-custom-data-type_-lightning-datatable>
+            </template>
+			<p slot="footer">Editable Datatable POC 🎃</p>
+		</lightning-card>
+	</div>
+</template>

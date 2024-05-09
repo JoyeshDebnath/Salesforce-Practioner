@@ -1,7 +1,12 @@
 import { LightningElement,wire,api } from 'lwc';
 import getContactsData from '@salesforce/apex/ContactController.getContactData'
 const columns=[
-    { label: 'Name', fieldName: 'name' },
+    { label: 'Name', type:"customName" ,typeAttributes:{
+        contactName:{
+            fieldName:"Name"
+        }
+    }
+    },
     { label: 'Title', fieldName: 'Title' ,
         cellAttributes:{
             class:{
@@ -11,8 +16,23 @@ const columns=[
     },
     { label: 'Phone', fieldName: 'Phone', type: 'phone' },
     { label: 'Email', fieldName: 'Email', type: 'email' },
-    { label: 'Picture', fieldName: 'Picture__c', type: 'url' },
-    { label: 'Rank', fieldName: 'Rank__c', type: 'number' },
+    { label: 'Picture',  type: 'customPicture',
+            typeAttributes:{
+                pictureUrl:{
+                    fieldName:"Picture__c"
+                }
+            },
+            cellAttributes:{
+                alignment:"center"
+            }
+     },
+    { label: 'Rank', fieldName: 'Rank__c', type: 'customRank',
+        typeAttributes:{
+            rankIcon:{
+                fieldName:"rankIcon"
+            }
+        }
+     },
     { label: 'Account name', fieldName: 'accountLink', type: 'url',
         typeAttributes:{
             label:{
@@ -41,12 +61,14 @@ export default class LightningDatatable_CustomType_Demo1 extends LightningElemen
                     let accountLink='/'+currContact.AccountId;
                     let greenText="slds-text-color_success";
                     let redText='slds-text-color_error'
+                    let rankIcon=currContact.Rank__c>5?'utility:ribbon':'';
                     return {
                         ...currContact,
                         accountName,
                         accountLink,
                         greenText,
-                        redText
+                        redText,
+                        rankIcon
                     }
             })
         }

@@ -27,7 +27,7 @@ public with sharing class ContactController {
     public static List<Contact> getContactsBasedOnAccount(String AccountId){
         List<Contact> contactList=new List<Contact>();
         try{
-            contactList=[SELECT Id,Name,Title,Account.Name,Phone,Email FROM Contact WHERE AccountId=:AccountId];
+            contactList=[SELECT Id,FirstName,LastName,Title,Phone,Email FROM Contact WHERE AccountId=:AccountId];
 
         }catch(Exception e){
             throw new AuraHandledException(e.getMessage());
