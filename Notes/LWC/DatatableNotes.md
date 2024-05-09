@@ -76,4 +76,56 @@ Create html file for each custom types.
         </lightning-card>
  </template>
 ```
+**File to refer:  editdatablePOC**
 
+**We can update the values either using Apex class or By using updateRecord**
+
+
+## Update Datatable Rows - (Custom Types)
+
+To make your Custom type Editable in lightning datatable , create an additional template to implement the UI for inline Editiing of the data type . 
+
+These high level steps add inline edit capability .
+1. create an edit template 
+2. Add the edit template to the Custom Type Defination 
+3. Make the Custom type editable in the column defination .
+
+- create an Edit template 
+  ```html
+  <lightning-input
+        type='number'
+        value={editValue}
+        data-inputable="true"
+  ></lightning-input>
+  ```
+**editValue is the current value of the custom cell being edited. The data-inputable="true" attribute is required for accessibility support**
+
+```js
+import LightningDatatble from 'lightning/datatble';
+ import CustomNumberTemplate from './customNumber.html';
+ import CustomNumberEditTemplate from './customNumberEdit.html';
+
+ export default class MyCustomDatatable extends LightningDatatable{
+     static customTypes={
+        customNumber:{
+            template:CustomNumberTemplate,
+            editTemplate:customNumberEditTemplate
+            standardCellLayout:true,
+            typeAttributes:['status','min']
+        },
+        
+     }
+ }
+```
+```js
+const COLS=[
+    {label:'Employees',type:'customNumber',fieldName:'NumberOfEmployees',editable:true,
+    typeAttributes:{
+        status:{
+            fieldName:'status'
+        },
+        min:0
+    }
+    }
+]
+```
