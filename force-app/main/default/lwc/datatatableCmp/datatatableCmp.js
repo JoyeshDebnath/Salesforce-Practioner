@@ -147,10 +147,5 @@ export default class DatatatableCmp extends LightningElement {
 
     }
 
-    handleSave (event) { 
-        console.log('inside onsave ', event.detail)
-        
-    }
-
 
 }

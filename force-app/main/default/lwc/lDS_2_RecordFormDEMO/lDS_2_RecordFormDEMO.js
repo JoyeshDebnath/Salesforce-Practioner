@@ -8,10 +8,4 @@ export default class LDS_2_RecordFormDEMO extends LightningElement {
         super();
         console.log('njd',this.recordId,this.objectApiName)
     }
-
-    handlSubmit (event) { }
-    
-    handleSuccess (event) { }
-    
-    handleError (event) { }
 }
