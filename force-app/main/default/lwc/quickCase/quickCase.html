@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="Quick Case: Lab Work 🧪" icon-name="standard:case">
+        <div class="slds-m-around_medium">
+            <!-- provide inputs  -->
+            <lightning-input    
+                value={subject}
+                label="Case Subject"
+                type="text" 
+                onchange={handleSubjectChange}
+            ></lightning-input>
+
+            <lightning-textarea    
+                value={decription}
+                label="Case  decsription"
+                type="text" 
+                onchange={handleDescriptionChange}   
+            ></lightning-textarea>
+            <!-- combobox  -->
+            <lightning-combobox
+                name="CaseStatus"
+                label="Status"
+                placeholder="Select status"
+                value={status}
+                options={statusOptions}
+                onchange={handleChange}
+            ></lightning-combobox>
+
+            <lightning-combobox
+                name="CaseOrigin"
+                label="Origin"
+                placeholder="Select Origin"
+                value={origin}
+                options={originOptions}
+                onchange={handleChange}
+            ></lightning-combobox>
+
+            <lightning-combobox
+                name="CasePriority"
+                label="Priority"
+                placeholder="Select Priority"
+                value={priority}
+                options={priorityOptions}
+                onchange={handleChange}
+            ></lightning-combobox>
+
+            <br/>
+            <lightning-button 
+                label="Create Case"
+                variant="brand" 
+                onclick={handleCreateCase}
+            >
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>
