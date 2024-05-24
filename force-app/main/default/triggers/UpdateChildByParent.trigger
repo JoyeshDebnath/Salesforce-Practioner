@@ -29,8 +29,8 @@ trigger UpdateChildByParent on Account (after insert) {
 
     
         for(Contact con:conList){
-            Account ParentAccnt=accMap.get(con.AccountId);
-            con.Phone=ParentAccnt.Phone;
+           // Account ParentAccnt=accMap.get(con.AccountId);
+            con.Phone=accMap.get(con.AccountId).Phone;
             conListToBeUpdated.add(con);
         }
 

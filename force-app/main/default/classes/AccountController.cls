@@ -8,9 +8,9 @@ public class AccountController {
         insert accountToInsert;
         return accountToInsert;
     }
-    
+    @AuraEnabled(cacheable=true)
     public static List<Account> getAllAccounts(){
-        List<Account> accounts=[SELECT Name,Phone FROM Account];
+        List<Account> accounts=[SELECT Name,Phone,Industry FROM Account LIMIT 10];
         return accounts;
     }
     

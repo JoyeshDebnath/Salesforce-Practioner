@@ -1,0 +1,7 @@
+SELECT COUNT(Id) numOfContacts , Name, AccountId,
+        Account.Name,
+        MIN(CreatedDate) earliestCreatedDate,
+        MAX(CreateDate) mostRecentCreatedDate 
+        FROM Contact
+        GROUP BY AccountId,Account.Name
+        LIMIT 20

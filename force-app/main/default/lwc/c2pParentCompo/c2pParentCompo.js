@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { LightningElement,wire,api } from 'lwc';
 
 export default class C2pParentCompo extends LightningElement {
     showModal = false;

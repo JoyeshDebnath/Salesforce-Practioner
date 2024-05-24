@@ -1,0 +1,17 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Refresh Apex Demo ✍️" icon-name="standard:account">
+            <lightning-button variant="brand" label="Delete" title="Delete" onclick={handleDelete}></lightning-button>
+            
+            <lightning-datatable
+            key-field="Id"
+            data={accountsData}
+            
+            columns={columns}
+            max-row-selection="1"
+            onrowselection={handleRowSelection}
+            >
+        </lightning-datatable>   
+        <p slot="footer">Refresh Apex Demo </p>
+    </lightning-card>
+        
+</template>

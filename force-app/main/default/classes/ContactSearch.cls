@@ -1,7 +1,9 @@
 public class ContactSearch {
-    public static List<Contact> searchForContacts(String reqLastName,String reqMailAddress){
-        Contact[] contacts=[SELECT Id,FirstName,LastName,MailingPostalCode FROM Contact WHERE (LastName=:reqLastName AND MailingPostalCode=:reqMailAddress) ];
-        System.debug(contacts);
-        return contacts;
+    public static List<Contact> searchForContacts(String firstStr,String secondStr){
+
+        List<Contact> conList=[SELECT Id,Name,FirstName,LastName,Phone FROM Contact WHERE (LastName=:firstStr AND MailingPostalCode=:secondStr)];
+
+        return conList;
+
     }
 }
