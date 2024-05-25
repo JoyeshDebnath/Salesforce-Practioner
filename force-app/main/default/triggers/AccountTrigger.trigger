@@ -14,6 +14,6 @@ trigger AccountTrigger on Account (before insert,after insert,before update,afte
         else if(Trigger.isAfter){
             AccountTriggerHandler.updateRelatedOpportunityPhone(Trigger.New,Trigger.oldMap);
         }
-     }
+    }
     
 }
