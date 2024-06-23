@@ -1,4 +1,3 @@
-
 /**
  * Upon creation of contact record a welcome Email notification should be triggered to email id populated on contact 
  * record 

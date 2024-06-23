@@ -62,7 +62,4 @@ public  class SG_OpportunityTriggerFinalTest {
 
         System.assertEquals('Opportunity is Closed Lost',oppList[0].Description,oppList[0].Description);
     } 
-
-
-
 }

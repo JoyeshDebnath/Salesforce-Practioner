@@ -228,5 +228,50 @@ public  class SG_AccountTriggerFinalController {
 
     }//approach using parent-chiild soql 
 
+    public static void updateRelatedOppStage(List<Account> newList,Map<Id,Account> oldMap){
+        List<Opportunity> oppToBeUpdated=new List<Opportunity>();
+        Set<Id> accntIds=new Set<Id>();
 
+        for(Account acc:newList){
+            if( (oldMap.get(acc.Id).Active__c=='Yes' || oldMap.get(acc.Id).Active__c==null ) && acc.Active__c=='No'){
+                accntIds.add(acc.Id);
+            } 
+        }
+
+        if(!accntIds.isEmpty()){
+            for(Account acc:[SELECT Id, 
+                        (SELECT AccountId,Id,Name,StageName FROM Opportunities)
+                        FROM Account 
+                        WHERE Id In : accntIds
+        ]){
+                for(Opportunity opp:acc.Opportunities){
+                    opp.StageName='Closed Lost';
+                    oppToBeUpdated.add(opp);
+                }
+        }
+    }
+
+        if(!oppToBeUpdated.isEmpty()){
+            update oppToBeUpdated;
+        }
+    }
+
+    public static void preventDelete(List<Account> accountList){
+        for(Account acc:accountList){
+            if(acc.Active__c=='Yes'){
+                acc.addError(Label.Prevent_Account_Deletion);
+            }
+        }
+    }
+
+    public static void preventAccountEdit(List<Account> newList,Map<Id,Account> oldMap){
+        for(Account acc:newList)
+        {
+            if(acc.CreatedDate < System.today() - 7 ){
+                acc.addError(Label.Account_Cannnot_be_Edited);
+            }
+        }
+
+        
+    }
 }

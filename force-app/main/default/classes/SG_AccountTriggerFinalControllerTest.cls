@@ -167,4 +167,76 @@ public  class SG_AccountTriggerFinalControllerTest {
             
             
         }
+    @isTest public static void testUpdateRelatedOppStage(){
+        Account acc=new Account();
+        acc.Name='test account';
+        acc.Active__c='Yes';
+
+        Test.startTest();
+        insert acc;
+        ID accId=acc.Id;
+        Opportunity opp=new Opportunity();
+        opp.Name='test opp';
+        opp.AccountId=accId;
+        opp.CloseDate=System.today();
+        opp.StageName='Prospecting';
+        insert opp;
+        
+        acc.Active__c='No';
+        update acc;
+        Test.stopTest();
+
+        List<Opportunity> oppList=[SELECT Id,AccountId,StageName FROM Opportunity WHERE AccountId=:accId];
+
+        System.assertEquals('Closed Lost',oppList[0].StageName);
+
+    }
+
+    @isTest public static void testPreventAccountDeletion(){
+        Account acc=new Account();
+        acc.Name='test account';
+        acc.Active__c='Yes';
+
+        Test.startTest();
+        insert acc;
+		Boolean exceptionThrown=false;
+        
+        try{
+            delete acc;
+        }catch(Exception e){
+            exceptionThrown=true;
+            
+            System.assert(e.getMessage().contains(Label.Prevent_Account_Deletion));
+        }
+			
+        
+        Test.stopTest();
+        System.assertEquals(true,exceptionThrown);
+    }
+
+    @isTest public static void testPreventAccountUpdation(){
+
+        Account acc=new Account();
+        acc.Name='test account';
+        //set the created date to check 
+        
+
+        Test.startTest();
+        insert acc;
+        Test.setCreatedDate(acc.Id, DateTime.newInstance(2023,03,20));
+        acc.Rating='Hot';
+        Boolean exceptionOcurred=false;
+        try{
+            update acc;
+
+        }catch(Exception e){
+            exceptionOcurred=true;
+            System.assert(e.getMessage().contains(Label.Account_Cannnot_be_Edited));
+        }
+
+        System.assertEquals(true, exceptionOcurred);
+
+        Test.stopTest();
+    }
+    
 }
