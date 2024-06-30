@@ -2,10 +2,21 @@
 public  class TestAccountDeletion {
     @isTest
     public static void testAccountDeletionPrevention(){
-        Account[] accs=TestDataFactory.createAccountWithOpps(1, 1);
+        //setup test data 
+        Account acc=new Account(
+            Name='test Account');
+            insert acc;
+        Opportunity opp=new Opportunity(
+            Name='test Opportunity',
+            StageName='Prospecting',
+            CloseDate=System.today(),
+            AccountId=acc.Id
+        );
+
+        insert opp;
 
         Test.startTest();
-            Database.DeleteResult result=Database.delete(accs[0],false);
+            Database.DeleteResult result=Database.delete(acc,false);
         Test.stopTest();
         
         System.assert(!result.isSuccess());
