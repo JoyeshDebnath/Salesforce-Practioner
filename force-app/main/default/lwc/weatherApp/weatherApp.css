@@ -1,0 +1,115 @@
+:host(){
+    --size-16:16px;
+    --size-12:12px;
+    --size-24:24px;
+    --size-30:30px;
+    --size-12:12px;
+    --size-14:14px;
+
+}
+
+.app{
+    min-height:100vh;
+    background: url(/sfsites/c/resource/Weather_App_BG_T);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.app-card{
+    background: #ffffff;
+    max-width: 400px;
+    min-width: 375px;
+    border-radius: 8px;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    font-size :20px;
+    color: #091f43;
+    padding: 16px;
+    border-bottom: 1px solid #ccc;
+    margin: auto;
+}
+
+input{
+    width: 100%;
+    padding: 16px;
+    height: 53px;
+    outline: none;
+    font-size:24px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+
+}
+
+h1{
+    font-size:28px;
+    font-weight: bolder;
+}
+input::placeholder{
+    color: #bfbfbf;
+}
+.width100{
+    width: 100%;
+}
+.btn{
+    border: none;
+    outline: none;
+    font-size: 24px;
+    color: white;
+    background: #ed2144;
+    border-radius: 8px;
+    height: 55px;
+}
+
+.success-message {
+    color: #155724;
+    background: #d4edda;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 12px;
+}
+
+.error-message{
+    color: #721c24;
+    background: #f8d7da;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 12px;
+}
+.text-align{
+    text-align: center;
+}
+.temperature{
+    font-size:60px;
+    line-height: normal;
+    font-weight: 700;
+    padding-top: 24px;
+}
+.description,.locator{
+    font-size:24px ;
+    line-height: 32px;
+    padding-top: 20px;
+}
+
+footer{
+    display: flex;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    justify-content: space-around;
+}
+.feels_like{
+    width: 100%;
+    padding: 16px;
+}
+.humidity{
+    border-left: 1px solid #ccc;
+    width: 100%;
+    padding: 16px;
+}
+
+.weather-img{
+    max-width: 125px;
+}
